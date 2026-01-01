@@ -1,0 +1,35 @@
+name: Online Judge Grader
+
+on: [push, pull_request]
+
+jobs:
+  judge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Run Tests
+        run: |
+          for input_file in tests/*.in; do
+            case_name=$(basename "$input_file" .in)
+            expected_output="tests/${case_name}.out"
+            
+            echo "--- 正在測試: $case_name ---"
+            
+            # 執行 solution.py 並比對結果
+            python3 solution.py < "$input_file" > temp_output
+            
+            # 使用 diff 比對，-Z 忽略行尾空白
+            if diff -Z temp_output "$expected_output"; then
+              echo "✅ $case_name 通過 (AC)"
+            else
+              echo "❌ $case_name 錯誤 (WA)"
+              exit 1
+            fi
+          done
