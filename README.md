@@ -1,14 +1,7 @@
-# 🚀 我的程式練習場 (Coding Practice)
-
-歡迎來到這裡練習題目！請按照以下步驟開始：
-
-### 📝 題目列表
-1. **[A+B 問題]**：讀取兩個整數並輸出其總和。
-   - 範例輸入：`1 2`
-   - 範例輸出：`3`
-
-### 🛠 如何練習？
+### ⚒ 如何練習？
 1. 點擊右上角的 **Fork**，複製一份到你的帳號。
 2. 在你自己的倉庫中修改 `solution.py`。
 3. **Commit changes** 後，點擊 **Actions** 查看評測結果。
 4. 如果看到 ✅，恭喜你通過了！
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/TC-sudo-dps/codingpractice)
